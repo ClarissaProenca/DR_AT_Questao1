@@ -1,0 +1,221 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Main</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: Main (org.example)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Main</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Main$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/51)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;import static org.example.Calculadora.*;
+&nbsp;
+&nbsp;/*Teste Caixa branca e caixa preta:
+&nbsp;* O teste de caixa branca é normalmente feito pelo desenvolvedor, pois nele se tem acesso ao código fonte.
+&nbsp;* Ou seja, são métodos de teste da estrutura interna do software.
+&nbsp;* Já a caixa preta não se preocupa com o código e seu funcionamento interno. Ele se baseia nas ações qua a aplicação deve realizar.
+&nbsp;*TODO: No ambiente IntelliJ, você está realizando que tipo de teste? Qual a justificativa?
+&nbsp;* */
+&nbsp;
+<b class="nc">&nbsp;public class Main {</b>
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        JFrame frame = new JFrame(&quot;Calculadora de números complexos&quot;);</b>
+<b class="nc">&nbsp;        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        frame.setSize(600, 400);</b>
+<b class="nc">&nbsp;        frame.setLocationRelativeTo(null);</b>
+&nbsp;
+<b class="nc">&nbsp;        JPanel painel = new JPanel();</b>
+<b class="nc">&nbsp;        painel.setLayout(new GridLayout(4, 3));</b>
+&nbsp;
+<b class="nc">&nbsp;        JTextField label1A = new JTextField();</b>
+<b class="nc">&nbsp;        JLabel labelIA = new JLabel(&quot; i &quot;, SwingConstants.CENTER);</b>
+<b class="nc">&nbsp;        labelIA.setFont((new Font(&quot;Arial&quot;, Font.BOLD, 30)));</b>
+<b class="nc">&nbsp;        JTextField label1B = new JTextField();</b>
+&nbsp;
+<b class="nc">&nbsp;        painel.add(label1A);</b>
+<b class="nc">&nbsp;        painel.add(label1B);</b>
+<b class="nc">&nbsp;        painel.add(labelIA);</b>
+&nbsp;
+<b class="nc">&nbsp;        JTextField label2A = new JTextField();</b>
+<b class="nc">&nbsp;        JLabel labelIB = new JLabel(&quot; i &quot;, SwingConstants.CENTER);</b>
+<b class="nc">&nbsp;        labelIB.setFont((new Font(&quot;Arial&quot;, Font.BOLD, 30)));</b>
+<b class="nc">&nbsp;        JTextField label2B = new JTextField();</b>
+&nbsp;
+<b class="nc">&nbsp;        painel.add(label2A);</b>
+<b class="nc">&nbsp;        painel.add(label2B);</b>
+<b class="nc">&nbsp;        painel.add(labelIB);</b>
+&nbsp;
+<b class="nc">&nbsp;        JTextField resultado = new JTextField();</b>
+<b class="nc">&nbsp;        resultado.setEditable(false);</b>
+<b class="nc">&nbsp;        JTextField resultado1 = new JTextField();</b>
+<b class="nc">&nbsp;        resultado1.setEditable(false);</b>
+<b class="nc">&nbsp;        JTextField resultado2 = new JTextField();</b>
+<b class="nc">&nbsp;        resultado2.setEditable(false);</b>
+&nbsp;
+<b class="nc">&nbsp;        painel.add(resultado);</b>
+<b class="nc">&nbsp;        painel.add(resultado1);</b>
+<b class="nc">&nbsp;        painel.add(resultado2);</b>
+&nbsp;
+&nbsp;        //Botões
+<b class="nc">&nbsp;        String[] buttonLabels = {&quot;Soma&quot;, &quot;Subtração&quot;, &quot;Módulo&quot;};</b>
+&nbsp;
+<b class="nc">&nbsp;        for(String label : buttonLabels){</b>
+<b class="nc">&nbsp;            JButton button = new JButton(label);</b>
+<b class="nc">&nbsp;            painel.add(button);</b>
+&nbsp;
+<b class="nc">&nbsp;            button.addActionListener(new ActionListener() {</b>
+&nbsp;                @Override
+&nbsp;                public void actionPerformed(ActionEvent e) {
+&nbsp;                    double num1A, num1B, num2A, num2B;
+&nbsp;
+&nbsp;                    try{
+<b class="nc">&nbsp;                        num1A = Double.parseDouble(label1A.getText());</b>
+<b class="nc">&nbsp;                        num1B = Double.parseDouble(label1B.getText());</b>
+&nbsp;
+<b class="nc">&nbsp;                        num2A = Double.parseDouble(label2A.getText());</b>
+<b class="nc">&nbsp;                        num2B = Double.parseDouble(label2B.getText());</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;                        if(label.equals(&quot;Soma&quot;)){</b>
+<b class="nc">&nbsp;                            resultado.setText(Soma(num1A, num2A) + &quot;  &quot; + Soma(num1B, num2B) + &quot; i&quot;);</b>
+<b class="nc">&nbsp;                        } else if(label.equals(&quot;Subtração&quot;)){</b>
+<b class="nc">&nbsp;                            resultado.setText(Subt(num1A, num2A) + &quot;   &quot; + Subt(num1B, num2B) + &quot; i&quot;);</b>
+<b class="nc">&nbsp;                        } else if(label.equals(&quot;Módulo&quot;)){</b>
+<b class="nc">&nbsp;                            resultado.setText(String.valueOf(Modulo(num1A, num1B)));</b>
+&nbsp;                        }
+<b class="nc">&nbsp;                    } catch(Exception ex){</b>
+<b class="nc">&nbsp;                        resultado.setText(&quot;Erro: Entrada inválida &quot; + ex.getMessage());</b>
+<b class="nc">&nbsp;                    }</b>
+&nbsp;                }
+&nbsp;            });
+&nbsp;        }
+<b class="nc">&nbsp;        frame.add(painel);</b>
+<b class="nc">&nbsp;        frame.setVisible(true);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-17 17:27</div>
+</div>
+</body>
+</html>
