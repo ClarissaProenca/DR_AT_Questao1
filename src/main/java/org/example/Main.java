@@ -14,6 +14,8 @@ import static org.example.Calculadora.*;
 *
 * Nesse projeto useu testes manuais para testar a visualização do java swing e seus componentes.
 * Para o teste dos métodos usei testes automatizados usando o JUnit
+*
+* Link do GitHub: https://github.com/ClarissaProenca/DR_AT_Questao1
 * */
 
 public class Main {
